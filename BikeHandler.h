@@ -1,5 +1,10 @@
+#ifndef BIKEHANDLER_H
+#define BIKEHANDLER_H
+
 #include <iostream>  
 #include <string>
+#include "Database.h"
+#include "Member.h"
 
 using namespace std; 
 
@@ -8,23 +13,12 @@ private:
     Database& db; 
 
 public:
-    BikeHandler(Database& database) : db(database) {}
+    BikeHandler(Database& database);
+    int registerBike(Member currentUserId, string Id, string ModelName);
+    void rentBike(Member currentUserId);
+    void showRentalList(Member currentUserId);
 
-    void registerBike(int currentUserId) {
-        // Placeholder implementation
-        cout << "Bike registration feature not yet implemented.\n";
-        cout << "Called by user ID: " << currentUserId << endl;
-    }
 
-    void rentBike(int currentUserId) {
-        // Placeholder implementation
-        cout << "Bike rental feature not yet implemented.\n";
-        cout << "Called by user ID: " << currentUserId << endl;
-    }
-
-    void showRentalList(int currentUserId) {
-        // Placeholder implementation
-        cout << "Show rental list feature not yet implemented.\n";
-        cout << "Called by user ID: " << currentUserId << endl;
-    }
 };
+
+#endif

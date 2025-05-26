@@ -1,5 +1,10 @@
+#ifndef MEMBERHANDLER_H
+#define MEMBERHANDLER_H
+
 #include <iostream>  
 #include <string>
+#include "Database.h"
+#include "Member.h"
 
 using namespace std; 
 
@@ -8,29 +13,9 @@ private:
     Database& db; 
 
 public:
-    MemberHandler(Database& database) : db(database) {}
-
-    void SignUp(const string& id, const string& password, const string& phoneNumber) {
-        db.addMember(id, USER, password, phoneNumber);
-    }
-
-    string Login(const string& id, const string& password) {
-        Member* member = db.findMember(id, password);
-        if (member != nullptr) {
-
-            cout << member->getId() << endl; 
-
-            
-            return member->getId(); 
-        } else {
-
-            return "-1";
-        }
-    }
-    
-    void DeleteAccount() {
-    }
-
-
-
+    MemberHandler(Database& database);
+    void SignUp(const string& id, const string& password, const string& phoneNumber);
+    Member LogIn(const string& id, const string& password);
 };
+
+#endif

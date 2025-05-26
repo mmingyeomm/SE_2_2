@@ -1,3 +1,6 @@
+#ifndef MEMBER_H
+#define MEMBER_H
+
 #include <iostream>  
 #include <string>
 
@@ -9,36 +12,17 @@ enum role {
 };
 
 class Member {
+public: 
+    string Id; 
+    role x; 
+    string Password; 
+    string PhoneNumber; 
 
-    private: 
-        string Id; 
-        role x; 
-        string Password; 
-        string PhoneNumber; 
-    public :
-
-        Member(){}
-
-        Member(string Id, role x, string Password, string PhoneNumber){
-            this->Id = Id;
-            this->x = x;
-            this->Password = Password; 
-            this->PhoneNumber = PhoneNumber; 
-        }
-
-        string getId() const { return Id; }
-        string getPassword() const { return Password; }
-
-        void printMember() {
-            if (x != ADMIN) {
-                cout << "error" << endl;
-                return; 
-            }
-            cout << this->Id << endl;
-            cout << this->Password << endl; 
-            cout << this->PhoneNumber << endl; 
-        }
-
-
+public:
+    Member();
+    Member(string Id, role x, string Password, string PhoneNumber);
+    void printMember();
 };
+
+#endif
 
